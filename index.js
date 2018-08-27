@@ -31,13 +31,15 @@ function run() {
 	let window = new BrowserWindow({
 		webPreferences: {
 			preload: path.join(__dirname, 'preload.js')
-		}
+		},
+		width: 400,
+		height: 300
 	});
 
 	window.loadURL(path.join(__dirname, 'index.html'));
 	window.setMenu(null);
-	window.setTitle('Danbooru Explorer');
-	window.webContents.toggleDevTools();
+	window.setTitle('Available Casting Devices');
+	// window.webContents.toggleDevTools();
 
 	window.on('close', _ => process.exit(0));
 

@@ -1,12 +1,17 @@
 require('electron-chromecast');
 
-castConsole.log = console.log;
-castConsole.info = console.log;
-castConsole.warn = console.log;
-castConsole.error = console.log;
+// castConsole.log = console.log;
+// castConsole.info = console.log;
+// castConsole.warn = console.log;
+// castConsole.error = console.log;
 
 chrome.cast.initialize({
-	receiverListener: _ => {
+	receiverListener: (a, b, c) => {
+		chrome.cast.requestSession(_ => {
+			console.log('requestSession: success', _);
+		}, _ => {
+			console.log('requestSession: fail', _);
+		});
 	},
 	sessionListener: _ => {
 		console.log(_);
