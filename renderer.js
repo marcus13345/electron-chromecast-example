@@ -22,12 +22,12 @@ function run() {
 				cancelPreviousPromise();
 
 			// start creating the DOM with the device buttons
-			let buttons = $('<div></div>');
+			let buttons = $('<div container></div>');
 
 			// iterate over available devices
 			for(let receiver of receivers) {
 				let button = $(`
-					<div>
+					<div button>
 						<a href="#">${(receiver.friendlyName || receiver.service_fullname)}</a>
 					</div>
 				`);

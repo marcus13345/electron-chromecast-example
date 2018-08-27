@@ -33,13 +33,16 @@ function run() {
 			preload: path.join(__dirname, 'preload.js')
 		},
 		width: 400,
-		height: 300
+		height: 300,
+		show: false
 	});
 
 	window.loadURL(path.join(__dirname, 'index.html'));
 	window.setMenu(null);
 	window.setTitle('Available Casting Devices');
-	// window.webContents.toggleDevTools();
+	window.once('ready-to-show', _ => {
+		window.show();
+	})
 
 	window.on('close', _ => process.exit(0));
 
